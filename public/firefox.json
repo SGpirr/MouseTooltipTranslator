@@ -10,53 +10,53 @@
         "48": "icons/icon_48.png",
         "128": "icons/icon_128.png"
     },
-    "content_security_policy": {
-        "extension_pages": "script-src 'self' 'wasm-unsafe-eval' ;  object-src 'none'"
-    },
-    "permissions": ["storage", "tts", "tabs", "scripting", "contextMenus", "offscreen", "search"],
-    "host_permissions": [
+    "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'",
+    "permissions": [
+        "tts",
+        "storage",
+        "tabs",
+        "scripting",
+        "contextMenus",
+        "notifications",
+        "search",
         "<all_urls>"
     ],
-
-
-
-    "web_accessible_resources": ["pdfjs/web/viewer.html", "ocr.html", "opencvHandler.html", "videoHandler.js","googleDocInject.js","subtitle.js"],
-    "sandbox": {
-        "pages": [
-        "opencvHandler.html"
-        ]
-    },
+    "web_accessible_resources": [
+        "pdfjs/web/viewer.html",
+        "ocr.html",
+        "opencvHandler.html",
+        "videoHandler.js",
+        "googleDocInject.js",
+        "subtitle.js"
+    ],
     "commands": {
         "copy-translated-text": {
-        "suggested_key": {
-            "default": "Ctrl+Shift+1"
-        },
-        "description": "Copy Translated Text"
+            "suggested_key": {
+                "default": "Ctrl+Shift+1"
+            },
+            "description": "Copy Translated Text"
         }
     },
     "omnibox": { "keyword" : "/" },
     "browser_specific_settings": {
         "gecko": {
-        "id": "mtt@com"
+            "id": "mtt@com"
         }
     },
-
-
-
     "content_scripts": [
         {
-        "js": ["contentScript.js"],
-        "css": ["tippy.css"],
-        "run_at": "document_start",
-        "all_frames": true,
-        "matches": ["<all_urls>"],
-        "match_about_blank": true
+            "js": ["contentScript.js"],
+            "css": ["tippy.css"],
+            "run_at": "document_start",
+            "all_frames": true,
+            "matches": ["<all_urls>"],
+            "match_about_blank": true
         }
     ],
     "background": {
         "scripts": ["background.js","offscreen.js"]
     },
-    "action": {
+    "browser_action": {
         "default_title": "Mouse Tooltip Translator",
         "default_popup": "popup.html"
     },

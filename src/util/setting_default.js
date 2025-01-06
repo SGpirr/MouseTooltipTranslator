@@ -18,7 +18,7 @@ export var defaultData = {
 
   // graphic
   tooltipFontSize: "18",
-  tooltipWidth: "200",
+  tooltipWidth: "1000",
   tooltipDistance: "20",
   tooltipAnimation: "fade",
   tooltipPosition: "follow",
