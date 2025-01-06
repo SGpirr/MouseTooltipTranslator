@@ -86,10 +86,22 @@ const common = {
           from: "**/*",
           context: "public",
           filter: (resourcePath) => {
-            const excludeList = ["compressed.tracemonkey-pldi-09.pdf", ".md", ".map"];
+            if (process.env.BROWSER === 'firefox' && resourcePath.endsWith('firefox.json')) {
+              return true;
+            }
+            if (process.env.BROWSER !== 'firefox' && resourcePath.endsWith('manifest.json')) {
+              return true;
+            }
+            const excludeList = ["firefox.json", "compressed.tracemonkey-pldi-09.pdf", ".md", ".map"];
             return !excludeList.some((excludeItem) => resourcePath.includes(excludeItem));
           },
-        },
+          transformPath(targetPath) {
+            if (targetPath.endsWith('firefox.json')) {
+              return targetPath.replace('firefox.json', 'manifest.json');
+            }
+            return targetPath;
+          }
+        }
       ],
     }),
     new MiniCssExtractPlugin({

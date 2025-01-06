@@ -10,7 +10,14 @@ const ExtReloader = require("webpack-ext-reloader");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env, argv) => {
-  console.log(argv.mode);
+  const isFirefox = env?.firefox;
+  console.log(`Building for ${isFirefox ? 'Firefox' : 'Chrome'}, mode: ${argv.mode}`);
+  
+  // Firefox 빌드인 경우 환경변수 설정
+  if (isFirefox) {
+    process.env.BROWSER = 'firefox';
+  }
+
   return merge(common, {
     mode: argv.mode || "production",
     entry: glob.sync("./src/**/*.js").reduce(function (obj, el) {
