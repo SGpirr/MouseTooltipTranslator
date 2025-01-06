@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "version": "0.1.89",
-    "name": "__MSG_appName__",
+    "version": "0.1.90",
+    "name": "Mouse Tooltip Translator",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
     "icons": {
