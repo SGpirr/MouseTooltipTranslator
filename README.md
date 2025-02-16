@@ -41,6 +41,7 @@ git clone https://github.com/ttop32/MouseTooltipTranslator.git
 cd MouseTooltipTranslator
 npm install 
 npm run build        // or 'npm run watch' for developing
+npm run build-firefox      // for building firefox extension
 ```
 
 3. You will see MouseTooltipTranslator/build path
