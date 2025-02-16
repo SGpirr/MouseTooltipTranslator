@@ -591,6 +591,7 @@ function holdKeydownList(key) {
   }
   if (util.isCharKey(key)) {
     util.requestStopTTS(Date.now() + 500);
+    killAutoReader();
   }
 }
 

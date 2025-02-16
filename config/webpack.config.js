@@ -10,15 +10,8 @@ const ExtReloader = require("webpack-ext-reloader");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env, argv) => {
-  const isFirefox = env?.firefox;
-  console.log(`Building for ${isFirefox ? 'Firefox' : 'Chrome'}, mode: ${argv.mode}`);
-  
-  // Firefox 빌드인 경우 환경변수 설정
-  if (isFirefox) {
-    process.env.BROWSER = 'firefox';
-  }
-
-  return merge(common, {
+  console.log(argv.mode);
+  return merge({
     mode: argv.mode || "production",
     entry: glob.sync("./src/**/*.js").reduce(function (obj, el) {
       obj[path.parse(el).name] = el;
@@ -50,5 +43,5 @@ module.exports = (env, argv) => {
         : false,
     ].filter(Boolean),
     devtool: argv.mode == "development" ? "source-map" : false,
-  });
+  },common);
 };

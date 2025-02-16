@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "version": "0.1.91",
+    "version": "0.1.165",
     "name": "Mouse Tooltip Translator",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
@@ -10,25 +10,12 @@
         "48": "icons/icon_48.png",
         "128": "icons/icon_128.png"
     },
-    "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'",
-    "permissions": [
-        "tts",
-        "storage",
-        "tabs",
-        "scripting",
-        "contextMenus",
-        "notifications",
-        "search",
-        "<all_urls>"
-    ],
-    "web_accessible_resources": [
-        "pdfjs/web/viewer.html",
-        "ocr.html",
-        "opencvHandler.html",
-        "videoHandler.js",
-        "googleDocInject.js",
-        "subtitle.js"
-    ],
+    "content_security_policy": "script-src 'self' 'wasm-unsafe-eval' ;  object-src 'none'",
+    "permissions": ["storage", "tabs", "scripting", "contextMenus", "search", "<all_urls>"],
+
+
+
+    "web_accessible_resources": ["pdfjs/web/viewer.html", "ocr.html", "opencvHandler.html", "videoHandler.js","googleDocInject.js","subtitle.js", "offscreen.js"],
     "commands": {
         "copy-translated-text": {
             "suggested_key": {
@@ -54,7 +41,7 @@
         }
     ],
     "background": {
-        "scripts": ["background.js","offscreen.js"]
+        "scripts": ["background.js"]
     },
     "browser_action": {
         "default_title": "Mouse Tooltip Translator",
